@@ -21,6 +21,8 @@
 		"vite": "^8.2.0"
 	},
 	"dependencies": {
-		"@sveltestrap/sveltestrap": "^7.1.0"
+		"@sveltestrap/sveltestrap": "^7.1.0",
+		"@tailwindcss/vite": "^4.3.3",
+		"tailwindcss": "^4.3.3"
 	}
 }
