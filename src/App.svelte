@@ -1,123 +1,53 @@
-<script>
-	import svelteLogo from "./assets/svelte.svg";
-	import viteLogo from "./assets/vite.svg";
-	import heroImg from "./assets/hero.png";
-	import Counter from "./lib/Counter.svelte";
+<script lang="ts">
+	import Input from "./components/Input.svelte";
+
+	import Ps1 from "./components/Ps1.svelte";
+	import History from "./components/History.svelte";
+	import altenovo from "./assets/altenovo.png";
+	import { Navbar, NavbarToggler } from "@sveltestrap/sveltestrap";
+
+	let isOpen = false;
+
+	const toggle = () => {
+		isOpen = !isOpen;
+	};
 </script>
 
-<section id="center">
-	<div class="hero">
-		<img src={heroImg} class="base" width="170" height="179" alt="" />
-		<img src={svelteLogo} class="framework" alt="Svelte logo" />
-		<img src={viteLogo} class="vite" alt="Vite logo" />
-	</div>
-	<div>
-		<h1>Get started</h1>
-		<p>
-			Edit <code>src/App.svelte</code> and save to test <code>HMR</code>
-		</p>
-	</div>
-	<Counter />
-</section>
+<svelte:head>
+	<title>ALTENOVO</title>
+</svelte:head>
 
-<div class="ticks"></div>
+<div class:sidebar-open={isOpen} class="app">
+	<!-- Navigation -->
+	<aside class="sidebar">
+		<div class="sidebar-header">
+			<a href="/">
+				<img src={altenovo} alt="ALTENOVO" class="sidebar-logo" />
+			</a>
+		</div>
 
-<section id="next-steps">
-	<div id="docs">
-		<svg class="icon" role="presentation" aria-hidden="true">
-			<use href="/icons.svg#documentation-icon"></use>
-		</svg>
-		<h2>Documentation</h2>
-		<p>Your questions, answered</p>
-		<ul>
-			<li>
-				<a href="https://vite.dev/" target="_blank" rel="noreferrer">
-					<img class="logo" src={viteLogo} alt="" />
-					Explore Vite
-				</a>
-			</li>
-			<li>
-				<a href="https://svelte.dev/" target="_blank" rel="noreferrer">
-					<img class="button-icon" src={svelteLogo} alt="" />
-					Learn more
-				</a>
-			</li>
-		</ul>
-	</div>
-	<div id="social">
-		<svg class="icon" role="presentation" aria-hidden="true">
-			<use href="/icons.svg#social-icon"></use>
-		</svg>
-		<h2>Connect with us</h2>
-		<p>Join the Vite community</p>
-		<ul>
-			<li>
-				<a
-					href="https://github.com/vitejs/vite"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<svg
-						class="button-icon"
-						role="presentation"
-						aria-hidden="true"
-					>
-						<use href="/icons.svg#github-icon"></use>
-					</svg>
-					GitHub
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://chat.vite.dev/"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<svg
-						class="button-icon"
-						role="presentation"
-						aria-hidden="true"
-					>
-						<use href="/icons.svg#discord-icon"></use>
-					</svg>
-					Discord
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://x.com/vite_js"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<svg
-						class="button-icon"
-						role="presentation"
-						aria-hidden="true"
-					>
-						<use href="/icons.svg#x-icon"></use>
-					</svg>
-					X.com
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://bsky.app/profile/vite.dev"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<svg
-						class="button-icon"
-						role="presentation"
-						aria-hidden="true"
-					>
-						<use href="/icons.svg#bluesky-icon"></use>
-					</svg>
-					Bluesky
-				</a>
-			</li>
-		</ul>
-	</div>
-</section>
+		<nav>
+			<a href="/">home</a>
+			<a href="/projects">projects</a>
+			<a href="/services">services</a>
+			<a href="/about">about</a>
+		</nav>
+	</aside>
 
-<div class="ticks"></div>
-<section id="spacer"></section>
+	<!-- Main -->
+	<main class="main-content">
+		<!-- sidebar-->
+		<Navbar color="dark" dark class="terminal-navbar">
+			<NavbarToggler aria-label="Toggle navigation" onclick={toggle} />
+		</Navbar>
+
+		<!-- terminal -->
+		<section class="terminal">
+			<History />
+
+			<Ps1 />
+
+			<Input />
+		</section>
+	</main>
+</div>
