@@ -2,6 +2,7 @@
 	import Input from "./components/Input.svelte";
 
 	import Ps1 from "./components/Ps1.svelte";
+	import History from "./components/History.svelte";
 	import altenovo from "./assets/altenovo.png";
 	import { Navbar, NavbarToggler } from "@sveltestrap/sveltestrap";
 
@@ -42,6 +43,8 @@
 
 		<!-- terminal -->
 		<section class="terminal">
+			<History />
+
 			<Ps1 />
 
 			<Input />
