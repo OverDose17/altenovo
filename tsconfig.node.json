@@ -11,13 +11,15 @@
 		"allowImportingTsExtensions": true,
 		"verbatimModuleSyntax": true,
 		"moduleDetection": "force",
-		"noEmit": true,
+		"emitDeclarationOnly": true,
 
 		/* Linting */
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"erasableSyntaxOnly": true,
-		"noFallthroughCasesInSwitch": true
+		"noFallthroughCasesInSwitch": true,
+
+        "composite": true,
 	},
 	"include": ["vite.config.ts"]
 }

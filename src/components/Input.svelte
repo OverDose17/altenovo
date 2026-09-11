@@ -12,7 +12,7 @@
 
 	onMount(() => {
 		input.focus();
-console.log('history.length ', $history.length);
+        
 		if ($history.length === 0) {
             console.log('in history length 0')
 			const command = commands["banner"] as () => string;
