@@ -4,7 +4,10 @@ import { history } from "../stores/history";
 
 const hostname = window.location.hostname;
 
-export const commands: Record<string, (args: string[]) => Promise<string> | string> = {
+export const commands: Record<
+	string,
+	(args: string[]) => Promise<string> | string
+> = {
 	help: (args) => {
 		return "Available commands: help, about, projects";
 	},
@@ -27,9 +30,9 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
 
     Type 'help' to see list of available commands.
     `,
-    clear: () => {
-        history.set([]);
+	clear: () => {
+		history.set([]);
 
-        return "";
-    },
+		return "";
+	},
 };

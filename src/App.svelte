@@ -5,8 +5,8 @@
 	import History from "./components/History.svelte";
 	import altenovo from "./assets/altenovo.png";
 	import { Navbar, NavbarToggler } from "@sveltestrap/sveltestrap";
-    import MatrixRain from "./components/MatrixRain.svelte";
-    import { matrixActive } from "./stores/matrix";
+	import MatrixRain from "./components/MatrixRain.svelte";
+	import { matrixActive } from "./stores/matrix";
 
 	let isOpen = false;
 
@@ -20,7 +20,7 @@
 </svelte:head>
 
 {#if $matrixActive}
-  <MatrixRain />
+	<MatrixRain />
 {/if}
 
 <div class:sidebar-open={isOpen} class="app">
