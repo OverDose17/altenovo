@@ -6,9 +6,11 @@
 	import altenovo from "./assets/altenovo.png";
 	import { Navbar, NavbarToggler } from "@sveltestrap/sveltestrap";
 	import MatrixRain from "./components/MatrixRain.svelte";
+	import GuiView from "./components/GuiView.svelte";
 	import { matrixActive } from "./stores/matrix";
 
 	let isOpen = false;
+	let uiStyleActive = false;
 
 	const toggle = () => {
 		isOpen = !isOpen;
@@ -43,17 +45,35 @@
 	<!-- Main -->
 	<main class="main-content">
 		<!-- sidebar-->
-		<Navbar color="dark" dark class="terminal-navbar">
-			<NavbarToggler aria-label="Toggle navigation" onclick={toggle} />
-		</Navbar>
 
-		<!-- terminal -->
-		<section class="terminal">
-			<History />
+		<div class="view-switch">
+			<span class="view-switch-label" class:active={!uiStyleActive}>CLI</span>
+			<label class="switch">
+				<input
+					type="checkbox"
+					bind:checked={uiStyleActive}
+					aria-label="Toggle between CLI and UI style"
+				/>
+				<span class="slider round"></span>
+			</label>
+			<span class="view-switch-label" class:active={uiStyleActive}>UI</span>
+		</div>
 
-			<Ps1 />
+		{#if uiStyleActive}
+			<GuiView />
+		{:else}
+            <Navbar color="dark" dark class="terminal-navbar">
+                <NavbarToggler aria-label="Toggle navigation" onclick={toggle} />
+            </Navbar>
+            
+			<!-- terminal -->
+			<section class="terminal">
+				<History />
 
-			<Input />
-		</section>
+				<Ps1 />
+
+				<Input />
+			</section>
+		{/if}
 	</main>
 </div>
