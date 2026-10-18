@@ -36,9 +36,9 @@
 
 		<nav>
 			<a href="/">home</a>
-			<a href="/projects">projects</a>
-			<a href="/services">services</a>
-			<a href="/about">about</a>
+			<a href="/">projects</a>
+			<a href="/">services</a>
+			<a href="/">about</a>
 		</nav>
 	</aside>
 
@@ -65,7 +65,7 @@
             <Navbar color="dark" dark class="terminal-navbar">
                 <NavbarToggler aria-label="Toggle navigation" onclick={toggle} />
             </Navbar>
-            
+
 			<!-- terminal -->
 			<section class="terminal">
 				<History />
